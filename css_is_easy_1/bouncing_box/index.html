@@ -1,0 +1,37 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >peters_k</div>
+  <script type="text/javascript">
+    const box = document.getElementById("my_bouncing_box");
+    let x = 0;
+    let y = 0;
+    let xDirection = 1;
+    let yDirection = 1;
+    const speed = 0.5; // seconds per movement
+
+    setInterval(function() {
+      x += xDirection;
+      y += yDirection;
+      box.style.left = x + "px";
+      box.style.top = y + "px";
+
+      const maxX = window.innerWidth - box.offsetWidth;
+      const maxY = window.innerHeight - box.offsetHeight;
+
+      if (x >= maxX) {
+        xDirection = -1;
+        x = maxX;
+      } else if (x <= 0) {
+        xDirection = 1;
+        x = 0;
+      }
+
+      if (y >= maxY) {
+        yDirection = -1;
+        y = maxY;
+      } else if (y <= 0) {
+        yDirection = 1;
+        y = 0;
+      }
+    }, speed * 1000);
+  </script>
+</html>
