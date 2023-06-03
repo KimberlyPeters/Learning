@@ -1,0 +1,21 @@
+<html>
+    <div id="my_box_realtime" style= "background-color: red; position: absolute; right: 70; bottom: 70; min-width: 100px; min-height: 100px"></div>
+    <script type="text/javascript">
+      window.onload = function move(){
+          let k = document.getElementById("my_box_realtime");
+          let diag = setInterval(animate, 500);
+          let point = 70;
+
+          function animate(){
+              if (point == 0){
+                  clearInterval(diag);
+              }
+              else {
+                  point--;
+                  k.style.right = point + "px";
+                  k.style.bottom = point + "px"
+              }
+          }
+      }
+    </script>
+</html>
